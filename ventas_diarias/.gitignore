@@ -1,0 +1,11 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# env
+.env
+
+# windows
+Thumbs.db
+Desktop.ini
