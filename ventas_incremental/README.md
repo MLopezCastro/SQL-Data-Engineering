@@ -169,6 +169,8 @@ ORDER BY fecha DESC;
 * Rango: de `hoy - 2` a `hoy`
 * 3 filas por cada una de esas fechas
 
+<img width="244" height="433" alt="query_pipesql" src="https://github.com/user-attachments/assets/c208673f-d982-4f1f-b89e-136b908400c1" />
+
 ---
 
 ## 🧩 Qué aprendiste con este ejercicio
