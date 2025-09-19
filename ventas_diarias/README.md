@@ -109,6 +109,9 @@ SELECT COUNT(*) AS existe_hoy
 FROM dbo.ventas_diarias
 WHERE fecha = CAST(GETDATE() AS DATE);
 ```
+<img width="448" height="129" alt="image" src="https://github.com/user-attachments/assets/e3ab3ccf-30a3-49f9-976a-efddc54668bc" />
+
+<img width="428" height="83" alt="image" src="https://github.com/user-attachments/assets/edcd1068-abb0-43b6-8770-e02aa71f5286" />
 
 ---
 
