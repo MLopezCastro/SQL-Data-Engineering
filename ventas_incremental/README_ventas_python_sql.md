@@ -81,6 +81,8 @@ Logs como:
 2025-09-18 | INFO | Resumen | crudas=9 | limpias=9 | rango=2025-09-16..2025-09-18
 ```
 
+<img width="858" height="277" alt="PIPELINEPY" src="https://github.com/user-attachments/assets/858bdf98-3dc3-4f5f-a5a0-5685dd743b9f" />
+
 ---
 
 ## 🧱 Esquema de datos
