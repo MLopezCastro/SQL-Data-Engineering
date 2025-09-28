@@ -130,3 +130,30 @@ SELECT fecha, COUNT(*) AS filas
 FROM dbo.ventas_limpias
 GROUP BY fecha
 ORDER BY fecha DESC;
+
+
+
+-----
+DECLARE @wm DATE = (SELECT COALESCE(MAX(fecha),'19000101') FROM dbo.ventas_limpias);
+INSERT INTO dbo.ventas_limpias (id, cliente_id, producto_id, fecha, monto)
+SELECT id, cliente_id, producto_id, fecha, monto
+FROM dbo.ventas_crudas
+WHERE fecha > @wm;
+
+SELECT @@ROWCOUNT AS filas_insertadas_otra_vez;  -- debería dar 0
+
+------
+DECLARE @hoy DATE = CAST(GETDATE() AS DATE);
+DECLARE @base_id INT = (SELECT ISNULL(MAX(id),0)+1 FROM dbo.ventas_crudas);
+
+INSERT INTO dbo.ventas_crudas (id, cliente_id, producto_id, fecha, monto)
+VALUES (@base_id, 7, 101, @hoy, 50.00), (@base_id+1, 8, 102, @hoy, 70.00);
+
+-- incremental
+DECLARE @wm DATE = (SELECT COALESCE(MAX(fecha),'19000101') FROM dbo.ventas_limpias);
+INSERT INTO dbo.ventas_limpias (id, cliente_id, producto_id, fecha, monto)
+SELECT id, cliente_id, producto_id, fecha, monto
+FROM dbo.ventas_crudas
+WHERE fecha > @wm;
+
+SELECT @@ROWCOUNT AS filas_nuevas_hoy;  -- debería dar 2
